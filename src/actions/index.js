@@ -1,5 +1,6 @@
 import shop from '../api/shop'
 import * as types from '../constants/ActionTypes'
+import axios from 'axios'
 
 const receiveProducts = products => ({
   type: types.RECEIVE_PRODUCTS,
@@ -7,9 +8,16 @@ const receiveProducts = products => ({
 })
 
 export const getAllProducts = () => dispatch => {
-  shop.getProducts(products => {
-    dispatch(receiveProducts(products))
-  })
+  return axios.get('http://tech.work.co/shopping-cart/products.json')
+    .then( res => {
+      const products = res.data.map( item => ({ 
+        ...item, 
+        title: item.productTitle,
+        price: item.price.value,
+      }));
+
+      dispatch(receiveProducts(products))
+    })
 }
 
 const addToCartUnsafe = productId => ({
