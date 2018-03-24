@@ -70,7 +70,7 @@ const decreaseQuantityByOneUnsafe = productId => ({
 
 export const decreaseQuantityByOne = productId => (dispatch, getState) => {
   let {cart} = getState();
-  // debugger
+
   if (cart.quantityById[productId] > 1) {
     dispatch(decreaseQuantityByOneUnsafe(productId));
   }
