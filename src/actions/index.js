@@ -60,6 +60,18 @@ export const removeItemFromCart = productId => (dispatch, getState) => {
     const newAmount = cart.quantityById[productId] + products.byId[productId].inventory
 
     dispatch(removeFromCartUnsafe(productId, newAmount));
-  
+  }
+}
+
+const decreaseQuantityByOneUnsafe = productId => ({
+  type: types.DECREASE_QUANTITY_BY_ONE,
+  productId
+})
+
+export const decreaseQuantityByOne = productId => (dispatch, getState) => {
+  let {cart} = getState();
+  // debugger
+  if (cart.quantityById[productId] > 1) {
+    dispatch(decreaseQuantityByOneUnsafe(productId));
   }
 }

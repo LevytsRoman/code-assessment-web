@@ -2,7 +2,8 @@ import {
   ADD_TO_CART,
   CHECKOUT_REQUEST,
   CHECKOUT_FAILURE,
-  REMOVE_FROM_CART
+  REMOVE_FROM_CART,
+  DECREASE_QUANTITY_BY_ONE
 } from '../constants/ActionTypes'
 
 const initialState = {
@@ -26,11 +27,15 @@ const addedIds = (state = initialState.addedIds, action) => {
 
 const quantityById = (state = initialState.quantityById, action) => {
   const { productId } = action    
-  
+    
   switch (action.type) {
     case ADD_TO_CART:
       return { ...state,
         [productId]: (state[productId] || 0) + 1
+      }
+    case DECREASE_QUANTITY_BY_ONE:
+      return { ...state,
+        [productId]: state[productId] - 1
       }
     case REMOVE_FROM_CART:            
       delete state[productId]
