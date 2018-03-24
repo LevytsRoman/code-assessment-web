@@ -61,12 +61,15 @@ describe('Cart component', () => {
 
     it('should not disable button', () => {
       const { button } = setup('9.99', product)
-      expect(button.prop('disabled')).toEqual('')
+      // console.log(button.find('.checkout'));
+
+      expect(button.find('.checkout').prop('disabled')).toEqual('')
     })
 
     it('should call action on button click', () => {
       const { button, actions } = setup('9.99', product)
-      button.simulate('click')
+      button.find('.checkout').simulate('click')
+      
       expect(actions.onCheckoutClicked).toBeCalled()
     })
   })
