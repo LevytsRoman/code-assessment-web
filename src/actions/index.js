@@ -46,3 +46,20 @@ export const checkout = products => (dispatch, getState) => {
     // dispatch({ type: types.CHECKOUT_FAILURE, cart })
   })
 }
+
+const removeFromCartUnsafe = (productId, newInventory) => ({
+  type: types.REMOVE_FROM_CART,
+  productId,
+  newInventory
+})
+
+export const removeItemFromCart = productId => (dispatch, getState) => {
+  const {cart, products} = getState();
+  
+  if (cart.addedIds.includes(productId)) {
+    const newAmount = cart.quantityById[productId] + products.byId[productId].inventory
+
+    dispatch(removeFromCartUnsafe(productId, newAmount));
+  
+  }
+}
