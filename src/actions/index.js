@@ -75,3 +75,7 @@ export const decreaseQuantityByOne = productId => (dispatch, getState) => {
     dispatch(decreaseQuantityByOneUnsafe(productId));
   }
 }
+
+export const toggleCart = () => (dispatch) => {
+  dispatch({type: types.TOGGLE_CART})
+}
