@@ -1,0 +1,146 @@
+@media screen and (max-width : 768px) {
+  .products--list--container {
+    .product--item--wrapper {
+      .tittle {
+        font-size: 28px;
+      }
+  
+      .item--info {
+        margin-left: 10px;
+        margin-right: 15px;
+      }
+  
+      .inventory {
+        font-size: 12px;
+      }
+    }
+  }
+
+  .cart--container {
+    .cart {
+      height: 100vh;
+      
+      .plus--minus {
+        left: auto;
+        top: auto;
+      }
+    }
+  }
+}
+
+@media screen and (max-width : 620px) {
+  header {
+    flex-direction: column;
+    margin-top: 30px;
+
+    .store--tittle {
+      margin-bottom: 5px;
+      font-size: 28px;
+    }
+
+    .cart--opener {
+      width: 141px;
+    }
+  }
+
+  .cart--container {
+    height: 100%;
+    width: 100%;
+
+    .cart {
+      height: 100%;
+      border-radius: 0;
+      
+
+      .cart--product--info .cart--info--stuff {
+        .price {
+          font-size: 14px;
+        }
+  
+        .tittle {
+          font-size: 16px;
+        }
+      }
+
+      .cart--body {
+        height: auto;
+      }
+
+      .checkout {
+        position: fixed;
+        border-radius: 0;
+        bottom: 0;
+        left:0;
+        display: block;
+        width: 100%;
+        height: 44px;
+      }
+    }
+  }
+
+  .products--list--container {
+    .product--item--wrapper {
+      flex-direction: column;
+      height: 365px;
+  
+      .item--image {
+        height: 205px;
+      }
+  
+      .item--image {
+        border-bottom-left-radius: 0px;
+        border-top-right-radius: 8px;
+      }
+      
+      .button--primary {
+        margin-top: 25px;
+        width: 121px;
+        height: 31px;
+        border-radius: 16px;
+      }
+
+      .item--info {
+        width: 100%;
+        margin: 0;
+        padding-left: 3%;
+    
+        .heading {
+          flex-direction: row;
+          justify-content: space-between;
+          width: 100%;
+    
+          .tittle {
+            font-size: 21px;
+          }
+      
+          .price {
+            font-size: 16px;
+            padding-right: 30px;
+          }
+        }
+        .info {
+          margin-top: 30px;
+        }
+      }
+    }
+  }
+
+}
+  
+@media screen and (max-width : 320px) {
+  body {
+    padding-left: 5.5%;
+    padding-right: 5.5%;    
+  }
+
+  .cart--container {
+    .cart {
+      .cart--product {
+        width:90%;
+      }
+      hr {
+        width: 90%;
+      }
+    }
+  }
+}
