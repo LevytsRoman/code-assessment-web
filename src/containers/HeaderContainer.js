@@ -7,9 +7,10 @@ import CartContainer from './CartContainer'
 
 const HeaderContainer = ({cartOpen, itemsInCart, toggleCart}) => (
   <div>
-    <h2>Acme Store</h2>
-    <div onClick={toggleCart}>{itemsInCart ? "you have" + itemsInCart : "nada"}</div>
-    <hr/>
+    <header>
+      <h2 className="store--tittle">Acme Store</h2>
+      <a className="cart--opener" onClick={toggleCart}><div className="small--cart"/>{itemsInCart ? `(${itemsInCart})` : "Your cart is empty"}</a>
+    </header>
     {cartOpen ? <CartContainer/> : null}
   </div>
 )
