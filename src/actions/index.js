@@ -14,8 +14,9 @@ export const getAllProducts = () => dispatch => {
         ...item, 
         title: item.productTitle,
         price: item.price.value,
+        imgUrl: item.productTitle.toLowerCase()
       }));
-
+      
       dispatch(receiveProducts(products))
     })
 }
@@ -30,13 +31,24 @@ export const addToCart = productId => (dispatch, getState) => {
     dispatch(addToCartUnsafe(productId))
   }
 }
+export const toggleCart = () => (dispatch, getState) => {
+  const { ui } = getState()
+  const scroll = ui.cartOpen ? "auto" :  "hidden"
 
+  // I really dislike hiding scroll here, but restructuring the app would take too much time
+  document.body.style.overflow = scroll;
+  
+  dispatch({type: types.TOGGLE_CART})
+}
 export const checkout = products => (dispatch, getState) => {
   const { cart } = getState()
 
   dispatch({
     type: types.CHECKOUT_REQUEST
   })
+
+  toggleCart()(dispatch);
+  
   shop.buyProducts(products, () => {
     dispatch({
       type: types.CHECKOUT_SUCCESS,
@@ -74,8 +86,4 @@ export const decreaseQuantityByOne = productId => (dispatch, getState) => {
   if (cart.quantityById[productId] > 1) {
     dispatch(decreaseQuantityByOneUnsafe(productId));
   }
-}
-
-export const toggleCart = () => (dispatch) => {
-  dispatch({type: types.TOGGLE_CART})
 }
