@@ -4,7 +4,7 @@
 node_modules
 
 # compiled assets
-./src/styles/css
+src/styles/css/
 .sass-cache
 
 # production
