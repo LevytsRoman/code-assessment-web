@@ -22,7 +22,7 @@ const Cart  = ({ products, total, onCheckoutClicked, onRemoveClicked, onAddClick
               quantity={product.quantity}
             />
             <button 
-              className="remove" 
+              className="hoverable remove" 
               onClick={() => onRemoveClicked(product.id)} >
               remove
             </button>
@@ -32,14 +32,14 @@ const Cart  = ({ products, total, onCheckoutClicked, onRemoveClicked, onAddClick
         <div className="cart--item--control">
           <div className="plus--minus">
             <button 
-              className="button--secondary minus" 
+              className="button--secondary minus hoverable" 
               onClick={() => onMinusClicked(product.id)}
               disabled={product.quantity === 1 ? "disabled" : ""} >
               -
             </button>
             <div className="quantity">{product.quantity}</div>
             <button 
-              className="button--secondary plus" 
+              className="button--secondary plus hoverable" 
               onClick={() => onAddClicked(product.id)}
               disabled={product.inventory ? "" : "disabled"} >
               +
@@ -99,7 +99,7 @@ const Cart  = ({ products, total, onCheckoutClicked, onRemoveClicked, onAddClick
             <button 
               onClick={onCheckoutClicked}
               disabled={hasProducts ? '' : 'disabled'}
-              className="button--primary checkout" >
+              className="button--primary checkout hoverable" >
               Checkout
             </button>
           </div>) : null}

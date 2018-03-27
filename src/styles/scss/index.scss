@@ -34,6 +34,7 @@ body {
 .button--primary:disabled {
   background-color: #5e96d1;
   opacity: 0.6;
+  cursor: auto;
 }
 
 .button--primary:focus {
@@ -61,14 +62,19 @@ body {
 .button--secondary:disabled {
   background-color: #f9f9f9;
   color: #dedede;
+  cursor: auto;    
 }
 
 .minus {
   border-top-left-radius: 20px;
-  border-bottom-left-radius: 40px;
+  border-bottom-left-radius: 20px;
 }
 
 .plus {   
   border-top-right-radius: 20px;
-  border-bottom-right-radius: 40px;   
+  border-bottom-right-radius: 20px;   
+}
+
+.hoverable {
+  cursor: url('../../icons/cursor.png') -32 -32, auto;
 }

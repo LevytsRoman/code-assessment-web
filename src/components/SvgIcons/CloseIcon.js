@@ -1,7 +1,7 @@
 import React from 'react';
 
 export default ({toggleCart}) => (
-  <svg className="close--cart" onClick={toggleCart} width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <svg className="close--cart hoverable" onClick={toggleCart} width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg">
     <g id="v2" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd" strokeLinecap="round">
       <g id="Desktop-Copy-2" transform="translate(-971.000000, -205.000000)" stroke="#CBCBCB" strokeWidth="2">
         <g id="Group-3" transform="translate(972.000000, 206.000000)">

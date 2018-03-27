@@ -26,3 +26,6 @@ export const getCartProducts = state =>
     ...getProduct(state, id),
     quantity: getQuantity(state, id)
   }))
+
+export const getCartProductCount = state => 
+  Object.values(state.cart.quantityById).reduce((a,b) => (a + b), 0)

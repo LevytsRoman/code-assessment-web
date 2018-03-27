@@ -47,7 +47,7 @@ export const checkout = products => (dispatch, getState) => {
     type: types.CHECKOUT_REQUEST
   })
 
-  toggleCart()(dispatch);
+  toggleCart()(dispatch, getState);
   
   shop.buyProducts(products, () => {
     dispatch({

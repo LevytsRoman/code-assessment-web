@@ -16,7 +16,7 @@ const ProductItem = ({ product, onAddToCartClicked }) => (
       <button
         onClick={onAddToCartClicked}
         disabled={product.inventory > 0 ? '' : 'disabled'}
-        className="button--primary"
+        className="button--primary hoverable"
         >
         {product.inventory > 0 ? 'Add to cart' : 'Sold Out'}
       </button>
