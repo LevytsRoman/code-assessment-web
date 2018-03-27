@@ -56,7 +56,7 @@ const Cart  = ({ products, total, onCheckoutClicked, onRemoveClicked, onAddClick
   )
 
   const roundForTaxes = (taxRate) => {
-    let roundedNum = (Math.round(total * taxRate * 100)/100).toString();
+    let roundedNum = (total * taxRate).toFixed(2).toString();
 
     const roundedArr = roundedNum.toString().split('.')
     if (roundedArr[roundedArr.length-1].length === 1) {
@@ -83,16 +83,16 @@ const Cart  = ({ products, total, onCheckoutClicked, onRemoveClicked, onAddClick
             <hr/>
             <div className="cart--price--info first--row">
               <div className="category">Subtotal: </div>
-              <div className="cart--price--stuff">&#36;{total}</div>
+              <div className="cart--price--amount subtotal">&#36;{total}</div>
             </div>
             <div className="cart--price--info">
               <div className="category">Taxes: </div>
-              <div className="cart--price--stuff">&#36;{roundForTaxes(.08)}</div>
+              <div className="cart--price--amount">&#36;{roundForTaxes(.08)}</div>
             </div>
             <hr/>
             <div className="cart--price--info">
               <div className="category">Total: </div>
-              <div className="cart--price--stuff">
+              <div className="cart--price--amount">
                 &#36;{roundForTaxes(1.08)}
               </div>
             </div>          

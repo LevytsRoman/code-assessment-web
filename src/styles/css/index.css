@@ -21,7 +21,7 @@ header {
   display: inline-block;
   background-image: url("../../icons/cart_icon.svg"); }
 
-.store--tittle {
+.store--title {
   font-size: 51px;
   letter-spacing: -1px;
   color: #222222;
@@ -47,7 +47,7 @@ hr {
     .products--list--container .product--item--wrapper .heading {
       display: flex;
       justify-content: stretch; }
-    .products--list--container .product--item--wrapper .tittle {
+    .products--list--container .product--item--wrapper .title {
       font-size: 38px;
       font-weight: 200;
       text-transform: capitalize;
@@ -187,7 +187,7 @@ hr {
         display: flex;
         justify-content: space-between;
         margin-left: 10px; }
-        .cart--container .cart .cart--product--info .cart--info--stuff .tittle {
+        .cart--container .cart .cart--product--info .cart--info--stuff .title {
           font-size: 32px;
           font-family: "Arial"; }
         .cart--container .cart .cart--product--info .cart--info--stuff .price {
@@ -211,7 +211,7 @@ hr {
         font-size: 14px;
         color: #9d9d9d;
         font-family: "Arial"; }
-      .cart--container .cart .total--price .cart--price--info .cart--price--stuff {
+      .cart--container .cart .total--price .cart--price--info .cart--price--amount {
         font-size: 14px;
         color: #2a2a2a;
         font-family: "Arial"; }
@@ -219,7 +219,7 @@ hr {
       margin-bottom: 20px; }
 
 @media screen and (max-width: 768px) {
-  .products--list--container .product--item--wrapper .tittle {
+  .products--list--container .product--item--wrapper .title {
     font-size: 28px; }
   .products--list--container .product--item--wrapper .item--info {
     margin-left: 10px;
@@ -236,7 +236,7 @@ hr {
   header {
     flex-direction: column;
     margin-top: 30px; }
-    header .store--tittle {
+    header .store--title {
       margin-bottom: 5px;
       font-size: 28px; }
     header .cart--opener {
@@ -249,7 +249,7 @@ hr {
       border-radius: 0; }
       .cart--container .cart .cart--product--info .cart--info--stuff .price {
         font-size: 14px; }
-      .cart--container .cart .cart--product--info .cart--info--stuff .tittle {
+      .cart--container .cart .cart--product--info .cart--info--stuff .title {
         font-size: 16px; }
       .cart--container .cart .cart--body {
         height: auto; }
@@ -282,7 +282,7 @@ hr {
         flex-direction: row;
         justify-content: space-between;
         width: 100%; }
-        .products--list--container .product--item--wrapper .item--info .heading .tittle {
+        .products--list--container .product--item--wrapper .item--info .heading .title {
           font-size: 21px; }
         .products--list--container .product--item--wrapper .item--info .heading .price {
           font-size: 16px;

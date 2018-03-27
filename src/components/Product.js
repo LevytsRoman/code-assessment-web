@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 const Product = ({ price, inventory, title }) => (
   <div className="info">
     <div className="heading">
-      <h3 className="tittle">{title}</h3>
+      <h3 className="title">{title}</h3>
       <div className="price">&#36;{price}</div>
     </div>
     <div className="inventory">

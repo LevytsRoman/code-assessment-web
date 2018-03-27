@@ -7,35 +7,40 @@ const setup = (total, products = []) => {
   const actions = {
     onCheckoutClicked: jest.fn()
   }
-
   const component = shallow(
     <Cart products={products} total={total} {...actions} />
   )
 
+  // console.log(component.find('.subtotal').debug())
+  // console.log(component.debug());
+  
   return {
     component: component,
     actions: actions,
     button: component.find('button'),
     products: component.find(Product),
     em: component.find('em'),
-    p: component.find('p')
+    total: component.find('.subtotal')
   }
 }
 
 describe('Cart component', () => {
   it('should display total', () => {
-    const { p } = setup('76')
-    expect(p.text()).toMatch(/^Total: \$76/)
+    const { total } = setup('76', [
+      {
+        id: 1,
+        title: 'Product 1',
+        price: 9.99,
+        quantity: 1
+      }
+    ])
+
+    expect(total.text()).toMatch(/^\$76/)
   })
 
   it('should display add some products message', () => {
     const { em } = setup()
-    expect(em.text()).toMatch(/^Please add some products to cart/)
-  })
-
-  it('should disable button', () => {
-    const { button } = setup()
-    expect(button.prop('disabled')).toEqual('disabled')
+    expect(em.text()).toMatch(/^Please add some products to your cart/)
   })
 
   describe('when given product', () => {

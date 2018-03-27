@@ -23,7 +23,7 @@ npm start
   Since redux-thunk was already set up, I've taken advantage of that and just replaced the asyncronys call to the mock api with the actual call. 
 
   There were two notable differences between the API response and products.json:
-  1) **tittle** property was called **productTitle** in the response
+  1) **title** property was called **productTitle** in the response
   2) **price** property was represented with a hash composed of value(the price) and denomination
 
   I've decided it would be a lot of work to rewrite the entire app, to handle these differences, so I used a spread operator 
