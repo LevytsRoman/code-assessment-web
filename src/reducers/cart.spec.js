@@ -27,15 +27,33 @@ describe('reducers', () => {
     })
 
     describe('when product is already in cart', () => {
-      it('should handle ADD_TO_CART action', () => {
-        const state = {
+      let state
+      
+      beforeEach( () => {
+        state = {
           addedIds: [ 1, 2 ],
-          quantityById: { 1: 1, 2: 1 }
+          quantityById: { 1: 2, 2: 1 }
         }
+      })
 
+      it('should handle ADD_TO_CART action', () => {
         expect(cart(state, { type: 'ADD_TO_CART', productId: 2 })).toEqual({
           addedIds: [ 1, 2 ],
-          quantityById: { 1: 1, 2: 2 }
+          quantityById: { 1: 2, 2: 2 }
+        })
+      })
+
+      it('should handle REMOVE_FROM_CART action', () => {
+        expect(cart(state, { type: 'REMOVE_FROM_CART', productId: 2 })).toEqual({
+          addedIds: [ 1 ],
+          quantityById: { 1: 2 }
+        })
+      })
+
+      it('should handle DECREASE_QUANTITY_BY_ONE action', () => {
+        expect(cart(state, { type: 'DECREASE_QUANTITY_BY_ONE', productId: 1 })).toEqual({
+          addedIds: [ 1, 2 ],
+          quantityById: { 1: 1, 2: 1 }
         })
       })
     })

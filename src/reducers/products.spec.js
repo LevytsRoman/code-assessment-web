@@ -77,6 +77,35 @@ describe('reducers', () => {
 
       })
 
+      describe('when an item is removed from the cart', () => {
+        
+        state = reducer(state, { type: 'REMOVE_FROM_CART', productId: 1, newInventory: 2 });
+
+        it('the inventory is restored', () => {
+          expect(products.getVisibleProducts(state)).toEqual([
+            {
+              id: 1,
+              title: 'Product 1',
+              inventory: 2
+            }, {
+              id: 2,
+              title: 'Product 2',
+              inventory: 1
+            }
+          ])
+        })
+      })
+
+      describe('when an items quantity is decreased in the cart', () => {
+        it('it increments the inventory by one', () => {
+          state = reducer(state, { type: 'DECREASE_QUANTITY_BY_ONE', productId: 1 })
+          
+          expect(products.getVisibleProducts(state)).toEqual([ 
+            { id: 1, title: 'Product 1', inventory: 3 },
+            { id: 2, title: 'Product 2', inventory: 1 } 
+          ])
+        })
+      })
     })
   })
 })

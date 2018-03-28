@@ -8,20 +8,27 @@ const setup = props => {
   )
 
   return {
-    component: component
+    title: component.find('.title'),
+    price: component.find('.price'),
+    inventory: component.find('.inventory')  
   }
 }
 
 describe('Product component', () => {
-  it('should render title and price', () => {
-    const { component } = setup({ title: 'Test Product', price: 9.99 })
-    expect(component.text()).toBe('Test Product - $9.99')
+  it('should render title', () => {
+    const { title } = setup({ title: 'Test Product', price: 9.99 })
+    expect(title.text()).toBe('Test Product')
+  })
+
+  it('should render price', () => {
+    const { price } = setup({ title: 'Test Product', price: 9.99 })
+    expect(price.text()).toBe('$9.99')
   })
 
   describe('when given inventory', () => {
-    it('should render title, price, and inventory', () => {
-      const { component } = setup({ title: 'Test Product', price: 9.99, inventory: 6 })
-      expect(component.text()).toBe('Test Product - $9.99 x 6')
+    it('should render inventory', () => {
+      const { inventory } = setup({ title: 'Test Product', price: 9.99, inventory: 6 })
+      expect(inventory.text()).toBe('6 remaining')
     })
   })
 })
